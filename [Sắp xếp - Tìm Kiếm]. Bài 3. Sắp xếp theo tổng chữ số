@@ -1,0 +1,41 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+long long s(long long a){
+    int s=0;
+    while(a){
+        s+=a%10;
+    a/=10;
+    
+    }return s;
+}
+bool cmp(int a, int b){
+    int c=s(a),d=s(b);
+    if(c!=d){
+        if(c<d)
+            return true;
+        else 
+            return false;
+    }
+    else {
+        if(a<b)
+            return true;
+    else 
+        return false;
+    }
+}
+int main() {
+    int n;cin>>n;
+    long long a[n];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    sort(a,a+n,cmp);
+    for(int i=0;i<n;i++){
+        cout<<a[i]<<' ';
+    }
+    return 0;
+}
